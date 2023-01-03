@@ -80,7 +80,7 @@ const Post = ({ post }: any) => {
 }
 
 export async function getStaticPaths() {
-  const paths = await client.fetch(`*[_type == "post" && defined(slug.current)][].slug.current`)
+  const paths = await client.fetch(groq`*[_type == "post" && defined(slug.current)][].slug.current`)
 
   return {
     paths: paths.map((slug: string) => ({ params: { slug } })),
