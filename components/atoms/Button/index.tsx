@@ -20,7 +20,7 @@ type PROPS_TYPE = {
 
 export default function Button(props: React.PropsWithChildren<PROPS_TYPE>) {
   const baseClass =
-    'transition-colors duration-200 flex justify-center items-center w-full h-full disabled:bg-[#9d6cd2] font-semibold font-inter'
+    'transition-colors duration-200 flex justify-center items-center w-full h-full disabled:bg-[#13ba96] font-semibold font-inter'
   return (
     <button
       disabled={props.disabled}

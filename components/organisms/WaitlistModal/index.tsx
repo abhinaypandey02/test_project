@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Image from 'next/image'
 
 import crossLogo from '../../../images/nav/crossLogo.svg'
@@ -29,10 +29,10 @@ export default function WaitListModal(props: PROPS_TYPE) {
           <Image src={successLogo} alt={'tick with green background'} className={'mx-auto'} />
         </div>
         <div className={'mt-4 text-center md:mt-8'}>
-          <Text text={'Wohoo!'} />
+          <Text variant={'h2'} text={'Wohoo!'} />
         </div>
         <div className={'mt-2.5 mb-8 text-center'}>
-          <Text text={"Let's unlock your true growth potential together!"} />
+          <Text variant={'l3'} text={'An email has been sent with the invitation!'} />
         </div>
         <div>
           <Button
@@ -53,7 +53,7 @@ export default function WaitListModal(props: PROPS_TYPE) {
       <div className={'flex '}>
         <div className={'  mr-auto'}>
           <div className={'ml-[3px] leading-[32px]'}>
-            <Text text={'Join the Waitlist!'} />
+            <Text variant={'h2'} text={'Join the Waitlist!'} />
           </div>
           <div className={' ml-[3px] leading-[20px] md:leading-[31px]'}>
             <Text className={'text-p3 opacity-70'} text={'to get product update'} />

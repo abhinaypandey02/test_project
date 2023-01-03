@@ -10,12 +10,23 @@ import FormGroup from '../FormGroup'
 const emailRegex =
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}])|(([a-zA-Z\-\d]+\.)+[a-zA-Z]{2,}))$/
 const phoneRegex = /^[6-9]\d{9}$/
-export default function WaitListForm({ setSuccess, isGetEarlyAccess }: any) {
-  const { handleSubmit, control, setError } = useForm()
+export default function WaitListForm({ setSuccess }: any) {
+  const { handleSubmit, control } = useForm()
   const [loading, setLoading] = useState(false)
   const [current, setCurrent] = useState(0)
   function onSubmit(contact: any) {
-    //f
+    setLoading(true)
+    axios
+      .post('/api/mail', { contact })
+      .then(() => {
+        setSuccess(true)
+      })
+      .catch((e) => {
+        console.error(e)
+      })
+      .finally(() => {
+        setLoading(false)
+      })
   }
 
   return (
@@ -23,10 +34,10 @@ export default function WaitListForm({ setSuccess, isGetEarlyAccess }: any) {
       <form
         id={'waitlist-form-main'}
         name={'waitlist-form-main'}
-        onSubmit={(e) => {
-          e.preventDefault()
+        onSubmit={handleSubmit(() => {
+          console.log(11)
           setCurrent(1)
-        }}
+        })}
         className={'flex flex-wrap  justify-between'}
       >
         <div className="flex w-full flex-col justify-between sm:flex-row sm:gap-8">
@@ -47,7 +58,7 @@ export default function WaitListForm({ setSuccess, isGetEarlyAccess }: any) {
           <FormGroup
             prepend={'+91'}
             type={'number'}
-            name={'mobile_number'}
+            name={'phone'}
             control={control}
             label={'Phone Number'}
             rules={{ required: true, maxLength: 10, minLength: 10, pattern: phoneRegex }}
@@ -99,9 +110,14 @@ export default function WaitListForm({ setSuccess, isGetEarlyAccess }: any) {
             name={'country'}
             control={control}
             label={'Country'}
-            rules={{ required: true }}
+            rules={{ required: current === 1 }}
           />
-          <FormGroup name={'state'} control={control} label={'State'} rules={{ required: true }} />
+          <FormGroup
+            name={'state'}
+            control={control}
+            label={'State'}
+            rules={{ required: current === 1 }}
+          />
         </div>
         <div className="flex w-full flex-col justify-between sm:flex-row sm:gap-8">
           <FormGroup

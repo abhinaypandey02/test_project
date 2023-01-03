@@ -5,7 +5,7 @@ import Button from '../../atoms/Button'
 import Container from '../../atoms/Container'
 import Text from '../../atoms/Text'
 import Wrapper from '../../atoms/Wrapper'
-export default function HomeHero() {
+export default function HomeHero({ displayWaitListForm }: { displayWaitListForm: () => void }) {
   return (
     <Wrapper style={{ backgroundImage: `url(${bg.src})`, backgroundPosition: 'center' }}>
       <Container className={'pt-40 pb-64'}>
@@ -22,6 +22,7 @@ export default function HomeHero() {
             width={275}
             variant={'primary'}
             id={'home-hero'}
+            onClick={displayWaitListForm}
           >
             <Text text={'Get ExpressVPN'} variant={'s1'} className={'text-white'} />
           </Button>

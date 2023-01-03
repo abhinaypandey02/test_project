@@ -17,7 +17,7 @@ type PROPS_TYPE = {
 
 export default function FormGroup(props: PROPS_TYPE) {
   return (
-    <div className={'mb-[7px] w-full sm:w-1/2 md:mb-[33px] ' + (props.hidden ? 'hidden' : '')}>
+    <div className={'mb-[7px] mb-[33px] w-full sm:w-1/2 ' + (props.hidden ? 'hidden' : '')}>
       <div className={'mb-2 sm:mb-5 '}>
         <Text className={'inter-500-16-24 !text-[14px] text-[#B0B7C3]'} text={props.label} />
       </div>

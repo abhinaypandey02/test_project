@@ -6,6 +6,7 @@ import imageUrlBuilder from '@sanity/image-url'
 
 import client from '../../client'
 import Container from '../../components/atoms/Container'
+import SEO from '../../components/atoms/SEO'
 import Text from '../../components/atoms/Text'
 import Wrapper from '../../components/atoms/Wrapper'
 import Layout from '../../components/organisms/Layout'
@@ -22,14 +23,7 @@ const COMPONENTS: { block: Record<string, PortableTextBlockComponent> } = {
 }
 
 const Post = ({ post }: any) => {
-  const {
-    title = 'Missing title',
-    name = 'Missing name',
-    categories,
-    authorImage,
-    mainImage,
-    body = [],
-  } = post
+  const { title = 'Missing title', name = 'Missing name', authorImage, mainImage, body = [] } = post
   const [showWaitListForm, setShowWaitListForm] = useState(false) //to keep track of visibility of modal
 
   function displayWaitListForm() {
@@ -47,8 +41,12 @@ const Post = ({ post }: any) => {
       showWaitListForm={showWaitListForm}
       hideDisplayWaitListForm={hideDisplayWaitListForm}
     >
+      <SEO
+        title={title + ' | ExpressVPN'}
+        description={'A page with the content of the blog - ' + title}
+      />
       <Wrapper>
-        <Container className={'py-5'}>
+        <Container className={'pt-44 pb-5'}>
           <article>
             {mainImage && (
               <div className={'my-5'}>

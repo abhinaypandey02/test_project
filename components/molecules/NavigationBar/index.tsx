@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 import arrow from '../../../images/nav/arrow.png'
 import Button from '../../atoms/Button'
@@ -92,9 +93,9 @@ export default function NavigationBar(props: PROPS_STYLE) {
         }
       >
         <Container className="flex items-center py-4 md:py-7 ">
-          <RevealAnimation animation={'slide-right'}>
+          <Link href={'/'}>
             <Logo />
-          </RevealAnimation>
+          </Link>
           <RevealAnimation animation={'fade'} className={'flex hidden flex-grow md:block'}>
             <Nav
               mobile={false}
