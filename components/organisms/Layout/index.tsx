@@ -34,7 +34,6 @@ export default function Layout({
         activeSubmenu={activeSubmenu}
         setActiveSubmenu={setActiveSubmenu}
       />
-      <div className={'h-[71px] md:h-[100px]'} />
       {children}
       {/*<Footer />*/}
     </div>

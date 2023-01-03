@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 
 import arrow from '../../../images/nav/arrow.png'
@@ -19,7 +19,14 @@ type PROPS_STYLE = {
 
 export default function NavigationBar(props: PROPS_STYLE) {
   const [sideBarActive, setSideBarActive] = useState(false)
-
+  const [isTop, setIsTop] = useState(false)
+  useEffect(() => {
+    if (window.scrollY === 0) setIsTop(true)
+    window.addEventListener('scroll', () => {
+      if (window.scrollY === 0) setIsTop(true)
+      else setIsTop(false)
+    })
+  }, [])
   function showSideBar() {
     //used to display sidebar by setting sideBarActive equal to true
     setSideBarActive(true)
@@ -78,7 +85,12 @@ export default function NavigationBar(props: PROPS_STYLE) {
           </Button>
         </div>
       </NavModal>
-      <Wrapper className={'fixed z-[40] w-full '}>
+      <Wrapper
+        className={
+          'fixed z-[40] w-full transition-colors duration-200 ease-in-out ' +
+          (!isTop ? 'bg-white' : '')
+        }
+      >
         <Container className="flex items-center py-4 md:py-7 ">
           <RevealAnimation animation={'slide-right'}>
             <Logo />

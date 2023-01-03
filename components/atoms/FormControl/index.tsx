@@ -29,7 +29,7 @@ export default function FormControl(props: PROPS_TYPE) {
   })
   let invalidClass = ' !border-[#fa9d9d] '
   const INPUT_BASE_CLASS =
-    'border-[#F3F3F3] inter-600-16-29 border-[1px] form-control focus:border-p1 focus:outline-none h-[45px] sm:h-[58px] text-[#5F6581] px-[15px]  w-full  rounded-[15px] w-full'
+    'border-[rgb(150,150,150)] inter-600-16-29 border-[1px] form-control focus:border-p1 focus:outline-none h-[45px] sm:h-[58px] text-[#5F6581] px-[15px]  w-full  rounded-[15px] w-full'
   return (
     <>
       <div className={'relative '}>

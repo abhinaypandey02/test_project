@@ -25,12 +25,6 @@ export default function Nav(props: PROPS_STYLE) {
       active: pathname === '/',
     },
     {
-      name: 'What is a VPN?',
-      route: '/what-is-vpn',
-      subItems: [],
-      active: pathname === '/what-is-vpn',
-    },
-    {
       name: 'Resources',
       route: props.mobile ? '' : '',
       subItems: [
