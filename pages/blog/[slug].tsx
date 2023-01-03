@@ -23,8 +23,14 @@ const COMPONENTS: { block: Record<string, PortableTextBlockComponent> } = {
 }
 
 const Post = ({ post }: any) => {
-  const { title = 'Missing title', name = 'Missing name', authorImage, mainImage, body = [] } = post
   const [showWaitListForm, setShowWaitListForm] = useState(false) //to keep track of visibility of modal
+  const {
+    title = 'Missing title',
+    name = 'Missing name',
+    authorImage,
+    mainImage,
+    body = [],
+  } = post || {}
 
   function displayWaitListForm() {
     //display the wait-list modal/form by setting showWaitListFrom to true

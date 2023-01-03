@@ -63,7 +63,7 @@ export default function FormControl(props: PROPS_TYPE) {
             options={props.options}
             onChange={field.onChange}
             value={field.value}
-            ref={field.ref}
+            eleRef={field.ref}
             onBlur={field.onBlur}
             INPUT_BASE_CLASS={INPUT_BASE_CLASS}
           />

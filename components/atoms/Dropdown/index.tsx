@@ -6,7 +6,7 @@ type PROPS_STYLE = {
   options: { code: string | undefined; name: string }[]
   onChange: (x: string | undefined) => void
   value: string
-  ref: any
+  eleRef: any
   onBlur: () => void
   INPUT_BASE_CLASS: string
 }
@@ -22,7 +22,7 @@ export default function Dropdown(props: PROPS_STYLE) {
     <div
       tabIndex={1}
       className={`relative flex cursor-pointer select-none items-center bg-white ${props.INPUT_BASE_CLASS} relative !px-0`}
-      ref={props.ref}
+      ref={props.eleRef}
       onBlur={() => setDropdownVisible(false)}
       onClick={() => setDropdownVisible(true)}
     >
