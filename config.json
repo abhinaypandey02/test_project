@@ -1,0 +1,8 @@
+{
+  "ERROR_MESSAGES": {
+    "required": "",
+    "pattern": "Invalid format",
+    "maxLength": "Too long",
+    "minLength": "Too short"
+  }
+}
