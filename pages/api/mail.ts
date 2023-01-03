@@ -13,7 +13,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     service: 'hotmail',
     auth: {
       user: 'abhinaypandey02@gmail.com',
-      pass: 'Abhinay@6943',
+      pass: process.env.NEXT_OUTLOOK_PASSWORD,
     },
   })
   try {
